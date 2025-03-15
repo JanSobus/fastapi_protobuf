@@ -13,3 +13,20 @@ dependencies = [
     "requests>=2.32.3",
     "uvicorn[standard]>=0.34.0",
 ]
+
+[tool.ruff]
+
+line-length = 120
+exclude = [
+    "google_pb/**",
+    "google_grpc/**",
+    "betterproto_pb/**",
+]
+output-format = "concise"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["COM812","D203","D213"]
+
+
+
