@@ -1,0 +1,20 @@
+syntax = "proto3";
+package school;
+import "google/protobuf/timestamp.proto";
+
+message Student {
+    string name = 1;
+    float avg_grade = 2;
+    google.protobuf.Timestamp dob = 3;
+}
+
+message Classroom {
+    string profile = 1;
+    repeated Student students = 2;
+}
+
+message ClassStats {
+    int32 numstudents = 1;
+    float grade = 2;
+}
+

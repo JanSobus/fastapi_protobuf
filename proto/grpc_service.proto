@@ -1,0 +1,7 @@
+syntax = "proto3";
+package school;
+import "messages.proto";
+
+service ClassroomSummary {
+    rpc SummarizeClassroom (Classroom) returns (ClassStats) {}
+}
