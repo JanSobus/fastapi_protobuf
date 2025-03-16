@@ -19,7 +19,6 @@ dependencies = [
 line-length = 120
 exclude = [
     "google_pb/**",
-    "google_grpc/**",
     "betterproto_pb/**",
 ]
 output-format = "concise"
@@ -27,6 +26,17 @@ output-format = "concise"
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = ["COM812","D203","D213"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+exclude = [
+    "google_pb/**",
+    "betterproto_pb/**",
+    ".venv/**",
+]
+
+
 
 
 
