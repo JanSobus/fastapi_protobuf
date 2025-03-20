@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import sys
 
 from grpclib.server import Server
 
@@ -11,6 +12,7 @@ from betterproto_pb.school import Classroom, ClassroomSummaryBase, ClassStats
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
 class ClassroomSummary(ClassroomSummaryBase):

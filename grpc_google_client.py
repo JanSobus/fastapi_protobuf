@@ -18,9 +18,7 @@ from google_pb.messages_pb2 import Classroom, Student
 # Configure logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-handler = logging.StreamHandler()
-handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s"))
-logger.addHandler(handler)
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
 async def main(port: int = 50051) -> None:

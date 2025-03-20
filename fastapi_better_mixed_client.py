@@ -32,7 +32,7 @@ def main() -> None:
     logger.info("JSON response size: %s bytes", sys.getsizeof(response.content))
     logger.info("JSON response status code: %s", response.status_code)
     result_object = ClassStats(**response.json())
-    logger.info("JSON request completed in %s seconds", perf_counter() - t0)
+    logger.info("JSON request completed in %s miliseconds", (perf_counter() - t0) * 1000)
     logger.info("Response: %s", result_object)
 
     logger.info("Running Protobuf request...")
@@ -48,7 +48,7 @@ def main() -> None:
     logger.info("Protobuf response size: %s bytes", sys.getsizeof(response.content))
     logger.info("Protobuf response status code: %s", response.status_code)
     result_object = ClassStats().FromString(response.content)
-    logger.info("Protobuf request completed in %s seconds", perf_counter() - t0)
+    logger.info("Protobuf request completed in %s miliseconds", (perf_counter() - t0) * 1000)
     logger.info("Response: %s", result_object)
 
 

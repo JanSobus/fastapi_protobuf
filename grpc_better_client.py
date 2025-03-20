@@ -13,7 +13,7 @@ from betterproto_pb.school import Classroom, ClassroomSummaryStub, Student
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 async def main(port: int = 50051) -> None:
     """Run the client."""

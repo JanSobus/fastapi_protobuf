@@ -14,6 +14,7 @@ from google_pb.messages_pb2 import Classroom, ClassStats, Student
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+logger.addHandler(logging.StreamHandler(sys.stdout))
 
 
 def main() -> None:
@@ -37,7 +38,9 @@ def main() -> None:
     logger.info("Response JSON: %s", response.json())
     result_msg = json_format.ParseDict(response.json(), ClassStats())
     t1 = perf_counter()
-    logger.info("Time to receive response: %s seconds. Result message: %s", t1 - t0, result_msg)
+    response_size = sys.getsizeof(response.content)
+    logger.info("Response size: %s bytes", response_size)
+    logger.info("Time to receive response: %s miliseconds. Result message: %s", (t1 - t0) * 1000, result_msg)
 
 
 if __name__ == "__main__":
