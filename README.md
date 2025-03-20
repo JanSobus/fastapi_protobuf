@@ -336,7 +336,7 @@ class ClassStats(BaseModel):
 
 ```
 
-Then, the server definition becomes very Pythonic and we get back all the FastAPI features:
+Then, the server definition becomes very Pythonic and one can get back all the FastAPI features:
 
 ```python
 # fastapi_google_json_server.py
@@ -774,7 +774,7 @@ Response: ClassStats(numstudents=3, grade=91.93333435058594)
 ```
 The main goal was achieved - single server can process both request types.
 ### Endpoint routing implementation
-Alternative approach is to have separate endpoints for JSON and bytestring payloads. The server will then use the request headers to determine the payload type and route the request to the appropriate endpoint. Of course, we don't want developer to manually duplicate the endpoint logic, so the hidden protobuf endpoints will be generated programatically. Then simple ASGI middleware will detect header type and route the request to the appropriate endpoint.
+Alternative approach is to have separate endpoints for JSON and bytestring payloads. The server will then use the request headers to determine the payload type and route the request to the appropriate endpoint. Of course, one doesn't want developer to manually duplicate the endpoint logic, so the hidden protobuf endpoints will be generated programatically. Then simple ASGI middleware will detect header type and route the request to the appropriate endpoint.
 ```mermaid
 sequenceDiagram
     participant Client
